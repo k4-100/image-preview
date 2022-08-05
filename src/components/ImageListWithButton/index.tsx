@@ -1,6 +1,6 @@
 import { Paper, Box } from "@mui/material";
 import React from "react";
-import Button from "./Button";
+import ImageListButton from "./ImageListButton";
 import ImageList from "./ImageList";
 
 const ImageListWithButton: React.FC = () => {
@@ -23,7 +23,7 @@ const ImageListWithButton: React.FC = () => {
         }}
       >
         <ImageList />
-        <Button />
+        <ImageListButton />
       </Paper>
     </Box>
   );
