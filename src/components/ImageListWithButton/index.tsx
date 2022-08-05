@@ -19,7 +19,6 @@ const ImageListWithButton: React.FC = () => {
         elevation={4}
         sx={{
           width: "200px",
-          height: 100,
           ml: 2,
         }}
       >
