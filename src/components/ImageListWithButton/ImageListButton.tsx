@@ -6,6 +6,13 @@ const ImageListButton: React.FC = () => {
   const { data } = useGlobalContext();
 
   console.log(data);
+
+  const handleInputFileChange = () => {
+    const upload: any = document.getElementById("upload");
+    const selectedFile = upload.files;
+    console.log(selectedFile);
+  };
+
   return (
     <>
       <InputLabel
@@ -16,6 +23,7 @@ const ImageListButton: React.FC = () => {
           backgroundColor: "primary.main",
           borderRadius: "0 0 4px 4px",
         }}
+        onClick={() => handleInputFileChange()}
       >
         + Upload New Image
       </InputLabel>
