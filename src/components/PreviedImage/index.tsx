@@ -14,7 +14,7 @@ const PreviedImage: React.FC = () => {
     >
       <img
         src="logo192.png"
-        alt="image"
+        alt="displayed"
         style={{
           display: "block",
           marginRight: "50px",
