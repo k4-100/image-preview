@@ -1,16 +1,16 @@
 import React from "react";
 
 type ContextDataType = {
-  files: any;
+  files: File[];
 };
 
 type GlobalContextType = {
   data: ContextDataType;
-  setData?: React.Dispatch<any>;
+  setData?: React.Dispatch<ContextDataType>;
 };
 const GlobalContext = React.createContext<GlobalContextType>({
   data: {
-    files: "",
+    files: [],
   },
 });
 
@@ -19,7 +19,7 @@ type Props = {
 };
 
 const GlobalContextProvider: React.FC<Props> = ({ children }) => {
-  const [data, setData] = React.useState<ContextDataType>({ files: "data" });
+  const [data, setData] = React.useState<ContextDataType>({ files: [] });
   return (
     <GlobalContext.Provider value={{ data, setData }}>
       {children}

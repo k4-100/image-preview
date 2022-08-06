@@ -1,8 +1,8 @@
-import { Input, InputLabel } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import React from "react";
 import { useGlobalContext } from "../../context";
 import styled from "@emotion/styled";
-
+import _ from "lodash";
 const StyledInput = styled.input`
   z-index: -1;
   position: absolute;
@@ -13,14 +13,18 @@ const StyledInput = styled.input`
 `;
 
 const ImageListButton: React.FC = () => {
-  const { data } = useGlobalContext();
+  const { data, setData } = useGlobalContext();
 
   console.log(data);
 
   const handleInputFileChange = () => {
     const upload: any = document.getElementById("upload");
-    const selectedFile = upload.files;
-    console.log(selectedFile);
+    const selectedFile: File = upload.files[0];
+    const _files = _.cloneDeep(data.files);
+    _files.push(selectedFile);
+    const _data: any = _.cloneDeep(data);
+    _data.files = _files;
+    setData!(_data);
   };
 
   return (
@@ -39,6 +43,7 @@ const ImageListButton: React.FC = () => {
       <StyledInput
         type="file"
         id="upload"
+        multiple
         onChange={() => handleInputFileChange()}
       />
     </>
