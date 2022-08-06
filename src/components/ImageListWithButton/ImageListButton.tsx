@@ -1,7 +1,11 @@
 import { Input, InputLabel } from "@mui/material";
 import React from "react";
+import { useGlobalContext } from "../../context";
 
 const ImageListButton: React.FC = () => {
+  const { data } = useGlobalContext();
+
+  console.log(data);
   return (
     <>
       <InputLabel
