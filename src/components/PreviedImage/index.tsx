@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import styled from "@emotion/styled";
+import { useGlobalContext } from "../../context";
 
 const StyledImg = styled.img`
   display: block;
@@ -8,6 +9,19 @@ const StyledImg = styled.img`
 `;
 
 const PreviedImage: React.FC = () => {
+  const [src, setSrc] = useState<string>("");
+  const { data } = useGlobalContext();
+
+  useEffect(() => {
+    if (data.files.length > 0) {
+      const fileReader = new FileReader();
+      fileReader.onloadend = () => {
+        setSrc(fileReader.result as string);
+      };
+      fileReader.readAsDataURL(data.files[0]);
+    }
+  }, [data]);
+
   return (
     <Box
       sx={{
@@ -19,7 +33,7 @@ const PreviedImage: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <StyledImg src="logo192.png" alt="displayed" />
+      <StyledImg src={src || "logo192.png"} alt="displayed" />
     </Box>
   );
 };
