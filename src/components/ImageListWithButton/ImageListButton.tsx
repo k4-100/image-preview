@@ -1,6 +1,16 @@
 import { Input, InputLabel } from "@mui/material";
 import React from "react";
 import { useGlobalContext } from "../../context";
+import styled from "@emotion/styled";
+
+const StyledInput = styled.input`
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+`;
 
 const ImageListButton: React.FC = () => {
   const { data } = useGlobalContext();
@@ -23,21 +33,13 @@ const ImageListButton: React.FC = () => {
           backgroundColor: "primary.main",
           borderRadius: "0 0 4px 4px",
         }}
-        onClick={() => handleInputFileChange()}
       >
         + Upload New Image
       </InputLabel>
-      <Input
-        id="upload"
+      <StyledInput
         type="file"
-        sx={{
-          zIndex: "-1",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: 0,
-          height: 0,
-        }}
+        id="upload"
+        onChange={() => handleInputFileChange()}
       />
     </>
   );
