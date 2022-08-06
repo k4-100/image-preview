@@ -1,5 +1,12 @@
 import React from "react";
 import { Box } from "@mui/material";
+import styled from "@emotion/styled";
+
+const StyledImg = styled.img`
+  display: block;
+  margin-right: 50px;
+`;
+
 const PreviedImage: React.FC = () => {
   return (
     <Box
@@ -12,14 +19,7 @@ const PreviedImage: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <img
-        src="logo192.png"
-        alt="displayed"
-        style={{
-          display: "block",
-          marginRight: "50px",
-        }}
-      />
+      <StyledImg src="logo192.png" alt="displayed" />
     </Box>
   );
 };
