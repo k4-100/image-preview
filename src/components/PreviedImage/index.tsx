@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { useGlobalContext } from "../../context";
 
 const StyledImg = styled.img`
   display: block;
-  margin-right: 50px;
-  width: 300px;
-  max-height: 300px;
+  margin-right: 25px;
+  width: 350px;
+  max-height: 350px;
 `;
 
 const PreviedImage: React.FC = () => {
@@ -37,7 +37,19 @@ const PreviedImage: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <StyledImg src={src} alt="" />
+      {src ? (
+        <StyledImg src={src} alt="" />
+      ) : (
+        <Typography
+          variant="h5"
+          color="primary.light"
+          sx={{
+            marginRight: "25px",
+          }}
+        >
+          Add image to start
+        </Typography>
+      )}
     </Box>
   );
 };
