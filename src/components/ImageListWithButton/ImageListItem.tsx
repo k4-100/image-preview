@@ -11,9 +11,12 @@ const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
     <Button
       sx={{
         display: "block",
+        width: "100%",
+        textAlign: "left",
       }}
+      onClick={() => handleClick(index)}
     >
-      {index + 1}
+      File {index + 1}
     </Button>
   );
 };
