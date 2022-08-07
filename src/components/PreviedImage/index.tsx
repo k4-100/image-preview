@@ -9,7 +9,9 @@ const StyledImg = styled.img`
   width: 350px;
   max-height: 350px;
 `;
-
+/**
+ * @returns image/info about no image displayed to the right
+ */
 const PreviedImage: React.FC = () => {
   const [src, setSrc] = useState<string>("");
   const { files, index } = useGlobalContext().data;

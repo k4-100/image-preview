@@ -6,7 +6,12 @@ type Props = {
   handleClick: Function;
   index: number;
 };
-
+/**
+ *
+ * @param handleClick handles click of a button
+ * @param index index of the image
+ * @returns Item inside the ImageList
+ */
 const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
   const { data } = useGlobalContext();
   const { name } = data.files.find((_, i) => i === index) as File;

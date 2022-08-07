@@ -3,6 +3,9 @@ import ImageListWithButton from "./components/ImageListWithButton";
 import PreviedImage from "./components/PreviedImage";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
+/**
+ * only purpose it serves is to change bgcolor
+ */
 const theme = createTheme({
   palette: {
     background: {

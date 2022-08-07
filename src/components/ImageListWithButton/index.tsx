@@ -3,6 +3,10 @@ import React from "react";
 import ImageListButton from "./ImageListButton";
 import ImageList from "./ImageList";
 
+/**
+ *
+ * @returns images list with a button allowing to upload new images
+ */
 const ImageListWithButton: React.FC = () => {
   return (
     <Box

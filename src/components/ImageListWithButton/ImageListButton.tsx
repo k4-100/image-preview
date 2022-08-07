@@ -12,6 +12,9 @@ const StyledInput = styled.input`
   height: 0;
 `;
 
+/**
+ * Adds image to the list with images
+ */
 const ImageListButton: React.FC = () => {
   const { data, setData } = useGlobalContext();
   const [error, setError] = useState<string>("");
@@ -26,6 +29,7 @@ const ImageListButton: React.FC = () => {
       _files.push(selectedFile);
       const _data: any = _.cloneDeep(data);
       _data.files = _files;
+      // sets
       _data.index = _data.files.length - 1;
       setData!(_data);
     } else setError("File with this name already exists!");
