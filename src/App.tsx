@@ -6,7 +6,7 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 const theme = createTheme({
   palette: {
     background: {
-      default: "purple",
+      default: "#13244d",
     },
   },
 });
