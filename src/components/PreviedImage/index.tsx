@@ -7,6 +7,7 @@ const StyledImg = styled.img`
   display: block;
   margin-right: 50px;
   width: 300px;
+  max-height: 300px;
 `;
 
 const PreviedImage: React.FC = () => {
