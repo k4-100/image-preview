@@ -1,8 +1,21 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-const ImageListItem: React.FC = () => {
-  return <Button>./file-1.jpg</Button>;
+type Props = {
+  handleClick: Function;
+  index: number;
+};
+
+const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
+  return (
+    <Button
+      sx={{
+        display: "block",
+      }}
+    >
+      {index + 1}
+    </Button>
+  );
 };
 
 export default ImageListItem;

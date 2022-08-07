@@ -11,19 +11,19 @@ const StyledImg = styled.img`
 
 const PreviedImage: React.FC = () => {
   const [src, setSrc] = useState<string>("");
-  const { data } = useGlobalContext();
+  const { files, index } = useGlobalContext().data;
 
   useEffect(() => {
-    if (data.files.length > 0) {
+    if (files.length > 0) {
       const fileReader = new FileReader();
 
       fileReader.addEventListener("loadend", () => {
         setSrc(fileReader.result as string);
       });
 
-      fileReader.readAsDataURL(data.files[0]);
+      fileReader.readAsDataURL(files[index]);
     }
-  }, [data]);
+  }, [files, index]);
 
   return (
     <Box
