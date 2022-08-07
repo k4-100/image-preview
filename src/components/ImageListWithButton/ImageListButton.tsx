@@ -18,7 +18,6 @@ const ImageListButton: React.FC = () => {
   console.log(data);
 
   const handleInputFileChange = () => {
-    debugger;
     const upload: any = document.getElementById("upload");
     const selectedFile: File = upload.files[0];
     if (!data.files.find((fl) => fl.name === selectedFile.name)) {
@@ -27,6 +26,7 @@ const ImageListButton: React.FC = () => {
       _files.push(selectedFile);
       const _data: any = _.cloneDeep(data);
       _data.files = _files;
+      _data.index = _data.files.length - 1;
       setData!(_data);
     } else setError("File with this name already exists!");
   };
