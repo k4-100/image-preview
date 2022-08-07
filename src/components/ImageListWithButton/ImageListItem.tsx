@@ -9,7 +9,14 @@ type Props = {
 
 const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
   const { data } = useGlobalContext();
-  const file = data.files.find((_, i) => i === index);
+  const { name } = data.files.find((_, i) => i === index) as File;
+  let displayedFileName = "";
+  if (name.length > 20)
+    displayedFileName = name
+      .split(".")
+      .reduce((prev, next) => prev.substring(0, 13) + "(...)." + next);
+  else displayedFileName = name;
+
   return (
     <Button
       sx={{
@@ -26,7 +33,7 @@ const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
       onClick={() => handleClick(index)}
     >
       {" "}
-      ./{file?.name}
+      ./{displayedFileName}
     </Button>
   );
 };
