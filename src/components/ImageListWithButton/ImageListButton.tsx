@@ -1,5 +1,5 @@
-import { InputLabel } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { InputLabel, Typography } from "@mui/material";
 import { useGlobalContext } from "../../context";
 import styled from "@emotion/styled";
 import _ from "lodash";
@@ -14,17 +14,21 @@ const StyledInput = styled.input`
 
 const ImageListButton: React.FC = () => {
   const { data, setData } = useGlobalContext();
-
+  const [error, setError] = useState<string>("");
   console.log(data);
 
   const handleInputFileChange = () => {
+    debugger;
     const upload: any = document.getElementById("upload");
     const selectedFile: File = upload.files[0];
-    const _files = _.cloneDeep(data.files);
-    _files.push(selectedFile);
-    const _data: any = _.cloneDeep(data);
-    _data.files = _files;
-    setData!(_data);
+    if (!data.files.find((fl) => fl.name === selectedFile.name)) {
+      setError("");
+      const _files = _.cloneDeep(data.files);
+      _files.push(selectedFile);
+      const _data: any = _.cloneDeep(data);
+      _data.files = _files;
+      setData!(_data);
+    } else setError("File with this name already exists!");
   };
 
   return (
@@ -46,6 +50,16 @@ const ImageListButton: React.FC = () => {
         multiple
         onChange={() => handleInputFileChange()}
       />
+      <Typography
+        color="error"
+        sx={{
+          mt: 1,
+          position: "absolute",
+          textAlign: "center",
+        }}
+      >
+        {error}
+      </Typography>
     </>
   );
 };
