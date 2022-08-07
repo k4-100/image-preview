@@ -9,7 +9,7 @@ type Props = {
 
 const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
   const { data } = useGlobalContext();
-  const file = data.files.find((fl, i) => i === index);
+  const file = data.files.find((_, i) => i === index);
   return (
     <Button
       sx={{
@@ -17,6 +17,11 @@ const ImageListItem: React.FC<Props> = ({ handleClick, index }) => {
         width: "100%",
         textAlign: "left",
         textTransform: "initial",
+        borderBottom: "2px solid hsla(0,0%,0%,0.1)",
+        borderBottomLeftRadius: "0",
+        borderBottomRightRadius: "0",
+        color: "text.primary",
+        fontWeight: "bold",
       }}
       onClick={() => handleClick(index)}
     >
