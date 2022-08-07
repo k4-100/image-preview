@@ -47,7 +47,7 @@ const ImageListButton: React.FC = () => {
       <StyledInput
         type="file"
         id="upload"
-        multiple
+        accept="image/*"
         onChange={() => handleInputFileChange()}
       />
       <Typography
