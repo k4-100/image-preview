@@ -33,7 +33,7 @@ const PreviedImage: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <StyledImg src={src || "logo192.png"} alt="displayed" />
+      <StyledImg src={src} alt="" />
     </Box>
   );
 };
