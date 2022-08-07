@@ -15,9 +15,11 @@ const PreviedImage: React.FC = () => {
   useEffect(() => {
     if (data.files.length > 0) {
       const fileReader = new FileReader();
-      fileReader.onloadend = () => {
+
+      fileReader.addEventListener("loadend", () => {
         setSrc(fileReader.result as string);
-      };
+      });
+
       fileReader.readAsDataURL(data.files[0]);
     }
   }, [data]);
