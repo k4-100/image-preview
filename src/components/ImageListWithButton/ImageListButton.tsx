@@ -40,6 +40,7 @@ const ImageListButton: React.FC = () => {
           color: "white",
           backgroundColor: "primary.main",
           borderRadius: "0 0 4px 4px",
+          cursor: "pointer",
         }}
       >
         + Upload New Image
