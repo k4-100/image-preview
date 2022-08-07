@@ -6,6 +6,7 @@ import { useGlobalContext } from "../../context";
 const StyledImg = styled.img`
   display: block;
   margin-right: 50px;
+  width: 300px;
 `;
 
 const PreviedImage: React.FC = () => {
